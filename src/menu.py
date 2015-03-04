@@ -301,6 +301,9 @@ class Menu:
                 if datatype == 'help':
                     webbrowser.open_new_tab('https://github.com/darknessomi/musicbox')
 
+            elif key == ord(';'):
+                self.player.toggle_lrc()
+
             self.ui.build_menu(self.datatype, self.title, self.datalist, self.offset, self.index, self.step)
 
         self.player.stop()

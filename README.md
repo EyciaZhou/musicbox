@@ -1,11 +1,11 @@
 NetEase-MusicBox
 =================
-###Thanks vellow,hbprotoss,Catofes,尘埃
+###Thanks vellow,hbprotoss,Catofes,尘埃,omi
 
 高品质网易云音乐命令行版本，简洁优雅，丝般顺滑，基于Python编写。
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt) 
-[![versions](https://img.shields.io/badge/versions%20-%20%200.1.3.1-blue.svg)]() [![platform](http://sdut-zrt.qiniudn.com/ platform - osx | linux -lightgrey.svg)]()
+[![versions](https://img.shields.io/badge/versions%20-%20%200.1.4.0-blue.svg)]() [![platform](http://sdut-zrt.qiniudn.com/ platform - osx | linux -lightgrey.svg)]()
 
 ![NetEase-MusicBox](http://sdut-zrt.qiniudn.com/687474703a2f2f692e696d6775722e636f6d2f4a35333533764b2e676966.gif)
 
@@ -38,7 +38,7 @@ NetEase-MusicBox
 	<tr> <td>=</td> <td>Volume +</td> <td>音量增加</td> </tr>
 	<tr> <td>-</td> <td>Volume -</td> <td>音量减少</td> </tr>
 	<tr> <td>Space</td> <td>Play/Pause</td> <td>播放/暂停</td> </tr>
-    <tr> <td>?</td> <td>Shuffle</td> <td>手气不错</td> </tr>
+	<tr> <td>?</td> <td>Shuffle</td> <td>手气不错</td> </tr>
 	<tr> <td>M</td> <td>Menu</td> <td>主菜单</td> </tr>
 	<tr> <td>P</td> <td>Present</td> <td>当前播放列表</td> </tr>
 	<tr> <td>A</td> <td>Add</td> <td>添加曲目到打碟</td> </tr>
@@ -48,6 +48,7 @@ NetEase-MusicBox
 	<tr> <td>R</td> <td>Remove</td> <td>删除当前条目</td> </tr>
 	<tr> <td>Q</td> <td>Quit</td> <td>退出</td> </tr>
 	<tr> <td>W</td> <td>Quit&Clear</td> <td>退出并清除用户信息</td> </tr>
+	<tr> <td>;</td> <td>Toggle Lrc</td> <td>切换是否显示歌词</td> </tr>
 </table>
 
 	
@@ -55,7 +56,7 @@ NetEase-MusicBox
 
 ### Mac安装
 
-	$ git clone https://github.com/darknessomi/musicbox.git  
+	$ git clone https://github.com/EyciaZhou/musicbox.git  
 	
 	$ cd musicbox
 	
@@ -65,7 +66,7 @@ NetEase-MusicBox
 
 ### Linux安装
 
-	$ git clone https://github.com/darknessomi/musicbox.git  
+	$ git clone https://github.com/EyciaZhou/musicbox.git  
 	
 	$ cd musicbox
 	
@@ -101,6 +102,7 @@ NetEase-MusicBox
 Enjoy it !
 
 ### 更新日志
+2014-03-04 版本 0.1.4.0    修复部分手机号段登陆问题，增加歌词与曲目的桌面通知，更换了主题配色
 
 2015-02-05 版本 0.1.3.1    修复登录无法保存的问题
 
@@ -118,7 +120,7 @@ Enjoy it !
 
 ### The MIT License (MIT) 
 
-CopyRight (c) 2015 omi  &lt;<a href="4399.omi@gmail.com">4399.omi@gmail.com</a>&gt;
+CopyRight (c) 2015 eycia  &lt;<a href="zhou.eycia@gmail.com">zhou.eycia@gmail.com</a>&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
