@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Author: omi
-# @Date:   2014-08-24 22:08:33
-# @Last Modified by:   omi
-# @Last Modified time: 2014-08-25 18:02:34
 
 '''
 __   ___________________________________________
@@ -39,7 +35,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='NetEase-MusicBox',
-    version='0.1.3.1',
+    version='0.1.4',
     packages=find_packages(),
 
     include_package_data=True,
@@ -55,9 +51,9 @@ setup(
         ],
     },
 
-    author='omi',
-    author_email='4399.omi@gmail.com',
-    url='https://github.com/darknessomi/musicbox',
+    author='eycia',
+    author_email='zhou.eycia@gmail.com',
+    url='https://github.com/EyciaZhou/musicbox',
     description='A sexy command line interface musicbox',
     keywords=['music', 'netease', 'cli', 'player'],
     zip_safe=False,

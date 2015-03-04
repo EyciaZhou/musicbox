@@ -22,11 +22,11 @@ class Ui:
         self.screen.keypad(1)
         self.netease = NetEase()
         curses.start_color()
-        curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
-        curses.init_pair(2, curses.COLOR_CYAN, curses.COLOR_BLACK)
-        curses.init_pair(3, curses.COLOR_RED, curses.COLOR_BLACK)
-        curses.init_pair(4, curses.COLOR_YELLOW, curses.COLOR_BLACK)
-
+        curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_RED)
+        curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_RED)
+        curses.init_pair(2, curses.COLOR_RED, curses.COLOR_WHITE)
+        curses.init_pair(4, curses.COLOR_WHITE, curses.COLOR_RED)
+        self.screen.bkgd(' ',curses.color_pair(1) )
 
     def build_playinfo(self, song_name, artist, album_name, pause=False):
         curses.noecho()
@@ -52,7 +52,8 @@ class Ui:
         curses.noecho()
         self.screen.move(4, 1)
         self.screen.clrtobot()
-        self.screen.addstr(4, 19, title, curses.color_pair(1))
+
+        self.screen.addstr(4, 19, title, curses.color_pair(3))
 
         if len(datalist) == 0:
             self.screen.addstr(8, 19, '这里什么都没有 -，-')

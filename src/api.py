@@ -250,6 +250,7 @@ class NetEase:
 
     def dig_info(self, data, dig_type):
         temp = []
+
         if dig_type == 'songs':
             for i in range(0, len(data)):
                 song_info = {
@@ -267,6 +268,11 @@ class NetEase:
                     song_info['artist'] = ', '.join(song_info['artist'])
                 else:
                     song_info['artist'] = '未知艺术家'
+
+                if 'album' in data[i] and 'picUrl' in data[i]["album"]:
+                    song_info["picUrl"] = data[i]["album"]["picUrl"]
+                else:
+                    song_info["picUrl"] = ""
 
                 temp.append(song_info)
 

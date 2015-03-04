@@ -15,18 +15,23 @@ import subprocess
 import threading
 import time
 import os
+import sys
 import signal
 import random
+import logger
+import cache
 from ui import Ui
 
 
 # carousel x in [left, right]
 carousel = lambda left, right, x: left if (x > right) else (right if x < left else x)
 
+log = logger.getLogger(__name__)
 
 class Player:
     def __init__(self):
         self.ui = Ui()
+        self.notify = cache.Notify()
         self.datatype = 'songs'
         self.popen_handler = None
         # flag stop, prevent thread start
@@ -35,6 +40,10 @@ class Player:
         self.songs = []
         self.idx = 0
         self.volume = 60
+        self.show_lrc = True
+
+    def toggle_lrc(self):
+        self.show_lrc = not self.show_lrc
 
     def popen_recall(self, onExit, popenArgs):
         """
@@ -46,7 +55,7 @@ class Player:
 
         def runInThread(onExit, popenArgs):
             self.popen_handler = subprocess.Popen(['mpg123', '-R', ], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            self.popen_handler.stdin.write("SILENCE\n")
+            #self.popen_handler.stdin.write("SILENCE\n")
             self.popen_handler.stdin.write("V " + str(self.volume) + "\n")
             self.popen_handler.stdin.write("L " + popenArgs + "\n")
             # self.popen_handler.wait()
@@ -57,6 +66,12 @@ class Player:
                     strout = self.popen_handler.stdout.readline()
                 except IOError:
                     break
+
+                if strout[:2] == "@F":
+                    if  self.show_lrc:
+                        nowtime = float(strout[2:].split(" ")[-2])
+                        self.notify.updateInfo(self.songs[self.idx], nowtime)
+
                 if strout == "@P 0\n":
                     self.popen_handler.stdin.write("Q\n")
                     self.popen_handler.kill()
@@ -77,7 +92,7 @@ class Player:
         item = self.songs[self.idx]
         self.ui.build_playinfo(item['song_name'], item['artist'], item['album_name'])
         self.popen_recall(self.recall, item['mp3_url'])
-
+        
     def play(self, datatype, songs, idx):
         # if same playlists && idx --> same song :: pause/resume it
         self.datatype = datatype
